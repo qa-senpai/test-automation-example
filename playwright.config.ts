@@ -39,7 +39,7 @@ const config: PlaywrightTestConfig = {
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: "on",
-    baseURL: "https://mqa-q-034.sitecorecontenthub-staging.cloud",
+    baseURL: "",
   },
 
   /* Configure projects for major browsers */
