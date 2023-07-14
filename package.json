@@ -9,5 +9,8 @@
   "license": "ISC",
   "devDependencies": {
     "@playwright/test": "^1.28.1"
+  },
+  "dependencies": {
+    "csv-parse": "^5.4.0"
   }
 }
