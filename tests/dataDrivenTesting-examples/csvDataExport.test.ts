@@ -1,6 +1,11 @@
 import { test } from "@playwright/test";
-import { MenuPage } from "../project/pages/MenuPage";
-import { readCsvFile } from "../helpers/csvHelper";
+import { MenuPage } from "../../project/pages/MenuPage";
+import { readCsvFile } from "../../helpers/csvHelper";
+
+/*
+ * Data Driven Testing - простий спосіб органіції тестів
+ * YOUTUBE https://youtu.be/7INsJsP6orY
+ */
 
 test.describe("Example of Parametrized test with object data import", () => {
   const data = [

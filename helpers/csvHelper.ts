@@ -17,7 +17,7 @@ export function readCsvFile(filePath: string) {
   return content;
 }
 
-function splitProperties(obj) {
+function splitProperties(obj: any) {
   const result = {};
 
   for (const key in obj) {
@@ -31,6 +31,5 @@ function splitProperties(obj) {
       }
     }
   }
-
   return result;
 }

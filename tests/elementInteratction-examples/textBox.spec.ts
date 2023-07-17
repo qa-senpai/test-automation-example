@@ -1,5 +1,10 @@
 import { expect, test } from "@playwright/test";
 
+/*
+ * Все про автоматизацію Text box елементів з Playwright
+ * YOUTUBE https://youtu.be/Ziu_A9Q9RD8
+ */
+
 test("qa senpai text box interaction", async ({ page }) => {
   const inputFieldLocator = page.locator(
     `//label[text() = '1.string.SingleLine']/../..//input`
