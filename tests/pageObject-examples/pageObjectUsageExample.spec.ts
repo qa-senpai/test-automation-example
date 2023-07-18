@@ -1,5 +1,10 @@
 import { expect, test } from "@playwright/test";
-import { MenuPage } from "../project/pages/MenuPage";
+import { MenuPage } from "../../project/pages/MenuPage";
+
+/*
+ * PageObject, головний патерн автоматизації?
+ * YOUTUBE https://youtu.be/zvGhSmJ7G2g
+ */
 
 test("Order coffee drink - check that order received", async ({ page }) => {
   const cupLocator = (drinkName: string) =>

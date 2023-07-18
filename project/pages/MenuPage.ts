@@ -18,8 +18,14 @@ export class MenuPage {
     return this;
   }
 
-  async addDrinkToCart(drinkName: string) {
-    await this.cupLocator(drinkName).click();
+  async addDrinkToCart(drinksName: Array<string> | string) {
+    if (typeof drinksName === "string") {
+      await this.cupLocator(drinksName).click();
+    } else {
+      for (const drink of drinksName) {
+        await this.cupLocator(drink).click();
+      }
+    }
     return this;
   }
 

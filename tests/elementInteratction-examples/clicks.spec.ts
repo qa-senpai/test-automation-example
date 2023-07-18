@@ -1,4 +1,9 @@
-import { test, expect } from "@playwright/test";
+import { test } from "@playwright/test";
+
+/*
+ * клік - найважливіший метод Playwright
+ * YOUTUBE https://youtu.be/emJwLW4fXZQ
+ */
 
 test(`clicks`, async ({ page }) => {
   const cupLocator = (drinkName: string) =>
