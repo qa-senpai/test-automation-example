@@ -1,44 +1,47 @@
-import { Locator, Page } from "@playwright/test";
+import { Page } from "@playwright/test";
 import { PaymentModal } from "../modals/PaymentModal";
+import { CoreActions } from "../CoreActions";
+/*
+ * Патерн Фасад - легко навчитися, важко оволодіти
+ * YOUTUBE https://youtu.be/ghb_miDDvU0
+ */
 
-export class MenuPage {
-  private readonly page: Page;
-  readonly totalButton: Locator;
-  readonly successMessage: Locator;
+export class MenuPage extends CoreActions {
+  private readonly totalButton = `[data-test='checkout']`;
+  private readonly successMessage = ".success";
   private readonly cupLocator = (drinkName: string) =>
-    this.page.locator(`.cup-body[aria-label='${drinkName}']`);
+    `.cup-body[aria-label='${drinkName}']`;
 
   constructor(page: Page) {
-    this.page = page;
-    this.totalButton = page.locator(`[data-test='checkout']`);
-    this.successMessage = page.locator(".success");
+    super(page);
   }
-  async navigateTo() {
-    await this.page.goto("https://coffee-cart.app");
+
+  async navigateToMenuPage() {
+    await this.navigateTo(`https://coffee-cart.app`);
     return this;
   }
 
   async addDrinkToCart(drinksName: Array<string> | string) {
     if (typeof drinksName === "string") {
-      await this.cupLocator(drinksName).click();
+      await this.clickOnElement(this.cupLocator(drinksName));
     } else {
       for (const drink of drinksName) {
-        await this.cupLocator(drink).click();
+        await this.clickOnElement(this.cupLocator(drink));
       }
     }
     return this;
   }
 
   async clickTotalButton() {
-    await this.totalButton.click();
+    await this.clickOnElement(this.totalButton);
     return new PaymentModal(this.page);
   }
 
   async getTotal() {
-    return this.totalButton.innerText();
+    return this.getElementText(this.totalButton);
   }
 
   async getSuccessMessage() {
-    return this.successMessage.innerText();
+    return this.getElementText(this.successMessage);
   }
 }

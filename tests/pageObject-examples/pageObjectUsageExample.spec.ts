@@ -30,7 +30,7 @@ test(`Order coffee drink - check that order received
     - rewritten with page objects`, async ({ page }) => {
   const menuPage = new MenuPage(page);
 
-  await menuPage.navigateTo();
+  await menuPage.navigateToMenuPage();
   await menuPage.addDrinkToCart("Espresso");
   const paymentDetailsModal = await menuPage.clickTotalButton();
   await paymentDetailsModal.submitOrder("qa senpai", "qa@gmail.test");
