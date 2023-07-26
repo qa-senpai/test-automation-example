@@ -1,12 +1,11 @@
 import { test } from "@playwright/test";
-import { MenuPage } from "../../project/pages/MenuPage";
 import { readCsvFile } from "../../helpers/csvHelper";
+import { MenuPage } from "../../project/pages/MenuPage";
 
 /*
  * Data Driven Testing - простий спосіб органіції тестів
  * YOUTUBE https://youtu.be/7INsJsP6orY
  */
-
 test.describe("Example of Parametrized test with object data import", () => {
   const data = [
     {
@@ -27,7 +26,7 @@ test.describe("Example of Parametrized test with object data import", () => {
     test(`${testID} - DDT examples - add drinks to cart`, async ({ page }) => {
       const menuPage = new MenuPage(page);
 
-      await menuPage.navigateTo();
+      await menuPage.navigateToMenuPage();
       await menuPage.addDrinkToCart(drinks);
     });
   }
@@ -40,7 +39,7 @@ test.describe("Example of DDT test with CSV data import", () => {
     test(`${testID} - DDT examples - add drinks to cart`, async ({ page }) => {
       const menuPage = new MenuPage(page);
 
-      await menuPage.navigateTo();
+      await menuPage.navigateToMenuPage();
       await menuPage.addDrinkToCart(drinks);
     });
   }
